@@ -10,6 +10,7 @@
 #' @export
 #' @return List of the lambdas and then the confidence interval
 #' @importFrom stats quantile
+#' @importFrom parallel mclapply
 I2C2.mcCI <- function(...,
                       rseed = 1234, R = 100,
                       mc.cores = 1, ci = 0.95){

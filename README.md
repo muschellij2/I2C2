@@ -2,6 +2,7 @@
 
 [![Travis-CI Build Status](https://travis-ci.org/muschellij2/I2C2.svg?branch=master)](https://travis-ci.org/muschellij2/I2C2)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/muschellij2/I2C2?branch=master&svg=true)](https://ci.appveyor.com/project/muschellij2/I2C2)
+[![Coverage Status](https://img.shields.io/coveralls/muschellij2/I2C2.svg)](https://coveralls.io/r/muschellij2/I2C2?branch=master)
 
 The I2C2 package computes the Image Intraclass Correlation Coefficient ('I2C2'),
 a global measure of reliability for imaging studies. The method was
