@@ -25,3 +25,12 @@ List of elements
 \description{
 Checks the input for I2C2
 }
+\examples{
+id = c(1:10, 10:1)
+visit = rep(1:2, each = 10)
+visit = as.character(visit)
+n = length(id)
+p = 100
+y = matrix(rnorm(n * p), nrow = n, ncol = p)
+check_id_visit(y =y, id = id, visit = visit)
+}

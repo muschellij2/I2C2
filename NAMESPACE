@@ -2,9 +2,12 @@
 
 export(I2C2)
 export(I2C2.mcCI)
+export(I2C2.mcNulldist)
+export(I2C2.original)
 export(I2C2.rpermute)
 export(I2C2.rsample)
 export(check_id_visit)
 export(demean_matrix)
 export(i2c2)
 export(resample_id)
+importFrom(stats,quantile)

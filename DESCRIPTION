@@ -1,7 +1,7 @@
 Package: I2C2
 Type: Package
 Title: Image Intraclass Correlation Coefficient
-Version: 0.1.0
+Version: 0.2
 Authors@R: c(person(given = "Haochang", family = "Shou", 
     role = c("aut", "cre"), email = "hshou@mail.med.upenn.edu"), 
     person(given = "Seonjoo", family = "Lee", 
@@ -14,7 +14,15 @@ Description: Computes the Image Intraclass Correlation Coefficient ('I2C2'),
     studies: the image intraclass correlation coefficient ('I2C2')"
     <https://doi.org/10.3758/s13415-013-0196-0>.
 BugReports: https://github.com/muschellij2/I2C2/issues
+Imports:
+    parallel,
+    stats
+Suggests:
+    beanplot
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr

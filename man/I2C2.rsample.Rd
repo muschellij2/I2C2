@@ -12,6 +12,14 @@ resample_id(s = 1, y, id, visit)
 \arguments{
 \item{s}{Random seed, Default = 1}
 
+\item{y}{An n by p data matrix containing functional responses.
+Each row contains measurements from a function for one observation at a
+set of grid points, and each column contains measurements of all
+functions at a particular grid point.
+
+The rows are organized by subjects and then visits, EX)
+(Y11, Y12, Y21, Y22, ... , YI1 , YI2)}
+
 \item{id}{Vector of IDs, EX) c(1, 1, 2, 2, 3, 3, 4, 4, ... , I, I)}
 
 \item{visit}{Vector of visits, EX) (1, 2, 1, 2, 1, 2, ... , 1, 2)}

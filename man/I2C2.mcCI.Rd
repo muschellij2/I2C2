@@ -4,11 +4,9 @@
 \alias{I2C2.mcCI}
 \title{Compute the Convidence Interval}
 \usage{
-I2C2.mcCI(y, ..., rseed = 1234, R = 100, mc.cores = 1, ci = 0.95)
+I2C2.mcCI(..., rseed = 1234, R = 100, mc.cores = 1, ci = 0.95)
 }
 \arguments{
-\item{y}{Dataset (Y11, Y12, ... , YnJn)' => (IJ)-by-p matrix for balanced case, EX) (Y11, Y12, Y21, Y22, ... , YI1 , YI2)}
-
 \item{...}{arguments passed to \code{\link{I2C2.rsample}}}
 
 \item{rseed}{Seed number}

@@ -13,6 +13,14 @@
 #' @export
 #'
 #' @return List of elements
+#' @examples
+#' id = c(1:10, 10:1)
+#' visit = rep(1:2, each = 10)
+#' visit = as.character(visit)
+#' n = length(id)
+#' p = 100
+#' y = matrix(rnorm(n * p), nrow = n, ncol = p)
+#' check_id_visit(y =y, id = id, visit = visit)
 check_id_visit = function(y, id, visit) {
   p = ncol(y)
   n = nrow(y)
@@ -41,14 +49,13 @@ check_id_visit = function(y, id, visit) {
 
   # reset the id number to be arithmetic sequence starting from 1
   id <- as.numeric(factor(id))
-  v <- as.numeric(factor(visit))
+  visit <- as.numeric(factor(visit))
 
   # reorder the rows in order of the ids
-  ord = order(id, v)
+  ord = order(id, visit)
 
   # order visit
   visit = visit[ord]
-  v = v[ord]
   id = id[ord]
   y = y[ord,]
 

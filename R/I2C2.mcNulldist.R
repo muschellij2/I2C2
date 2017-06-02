@@ -1,83 +1,32 @@
+#' @title Compute the Null Distribution
+#' @description Computing the null distribution of I2C2
+#' via permutation and multicore computing.
+#'
+#' @param ... arguments passed to \code{\link{I2C2.rpermute}}
+#' @param rseed Seed number
+#' @param R Number of permutations
+#' @param mc.cores Number of Cores
+#'
+#' @export
+#' @return List of the lambdas
+I2C2.mcNulldist <- function(...,
+                      rseed = 1234, R = 500,
+                      mc.cores = 1){
 
-# I2C2.mcNulldist                    package:????                    R Documentation
-#
-# Compute Null Distribution
-#
-# Description:
-#
-#     ?I2C2.mcNulldist? is used for computing the null distribution of I2C2 via permutation and multicore computing.
-#
-#Usage:
-#
-#	I2C2.mcNulldist(y, I, J, id = NULL, visit = NULL, p = NULL,
-#		            twoway = TRUE, demean = TRUE, T = NULL, symmetric = FALSE, trun = FALSE, #trace calculation parameters
-#                   rseed = 1234, R = 500, ncores = 4, # Bootstrap Arguments
-#                   ...)
-#
-#Arguments:
-# # y: Dataset (Y11, Y12, ... , YnJn)' => (IJ)-by-p matrix for balanced case, EX) (Y11, Y12, Y21, Y22, ... , YI1, YI2)
-# # I: Number of subjects
-# # J: Number of repetitions
-# # id: Vector of IDs, EX) c(1, 1, 2, 2, 3, 3, 4, 4, ... , I, I)
-# # visit: Vector of visits, EX) (1, 2, 1, 2, 1, 2, ... , 1, 2)
-# # p: dimension of oberved vectors Yij, EX) Number of voxels
-# # twoway, demean, T, symmetric, trun: trace calcuation parameters. See 'I2C2'
-# # rseed: Seed number
-# # R: The bootstrap repetition size
-# # ncores: Number of Cores
-#
-#Author(s):
-#
-#    Haochang Shou, Ani Eloyan, Seonjoo Lee, Vadim Zipunnikov, Mary Beth Nebel,
-#     Brian Ca?o, Martin Lindquist, Ciprian M. Crainiceanu
-#
-#References:
-#
-#     Haochang Shou, Ani Eloyan, Seonjoo Lee, Vadim Zipunnikov, Mary Beth Nebel,
-#     Brian Ca?o, Martin Lindquist, Ciprian M. Crainiceanu  (2012) The image intra
-#     class correlation coe?cient for replication studies.
-#
-#See Also:
-#
-#     'I2C2', 'I2C2.mcCI'
-#
-I2C2.mcNulldist <- function(y, I = NULL, J = NULL, id = NULL, visit = NULL, p = NULL,
-                            twoway = TRUE,  demean = FALSE, T = NULL, symmetric = FALSE, trun = FALSE,
-                            rseed = 1234, R = 500, ncores = 4)
-{
+  ##	set up the number of multicores
+  ##	Set a random seed
 
-  if(  ( is.null(id) | is.null(visit) ) && ( is.null(I) | is.null(J) )  ) {
-    stop("Not enough information! Please provide (id, visit) or (I,J) !")
-  }
-
-  options(cores = ncores)
-  print( paste( "Number of Cores Specficed:", getOption('cores') ) )
   set.seed(rseed)
 
-  if( ncores == 1 ) {
+  lambda <- parallel::mclapply(
+    1:R,
+    function(s){
+      l = I2C2.rpermute(s + rseed, ...)
+      return(l)
+    }, mc.cores = mc.cores)
 
-    lambda <- lapply( 1:R,
-                      myfunc <- function(s){
-                        l = I2C2.rpermute(s + rseed, y = y, I = I, J = J, id = id, visit = visit, p = p,	                  	                                     twoway = twoway, demean = demean,
-                                          T = T, symmetric = symmetric, trun = trun
-                        );
-                        return(l)
-                      }
-    )
-  }
-  else {
-
-    lambda <- mclapply( 1:R,
-                        myfunc <- function(s){
-                          l = I2C2.rpermute(s + rseed, y = y, I = I, J = J, id = id, visit = visit, p = p,
-                                            twoway = twoway, demean = demean,
-                                            T = T, symmetric = symmetric, trun = trun
-                          );
-                          return(l)
-                        }
-    )
-  }
-
-  lambda = as.vector( unlist(lambda) )
-  return(lambda)
+  lambda = as.vector(unlist(lambda))
+  result <- list(lambda = lambda)
+  # result$CI <- quantile( result$lambda, c( (1 - ci)/2,ci + (1 - ci)/2) )
+  return(result)
 }
