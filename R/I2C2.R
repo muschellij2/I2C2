@@ -46,7 +46,8 @@
 #' n = length(id)
 #' p = 100
 #' y = matrix(rnorm(n * p), nrow = n, ncol = p)
-#' I2C2(y, id = id, y = y)
+#' res = I2C2(y, id = id, visit = visit)
+#' res$lambda
 I2C2 <- function(
   y,
   id,
@@ -62,6 +63,7 @@ I2C2 <- function(
   n = L$n
   y = L$y
   id = L$id
+  I = L$I
   visit = L$visit
   # p = L$p
 

@@ -20,7 +20,8 @@ The rows are organized by subjects and then visits, EX)
 \item{visit}{Vector of visits, EX) (1, 2, 1, 2, 1, 2, ... , 1, 2)}
 }
 \value{
-List of elements
+List of elements: reorder data, id, visit, I (number of ids),
+number of rows (n), and number of columns (p)
 }
 \description{
 Checks the input for I2C2

@@ -28,6 +28,6 @@ I2C2.mcCI <- function(...,
 
   lambda = as.vector(unlist(lambda))
   result <- list(lambda = lambda)
-  result$CI <- quantile( result$lambda, c( (1 - ci)/2,ci + (1 - ci)/2) )
+  result$CI <- quantile( result$lambda, c( (1 - ci)/2, ci + (1 - ci)/2) )
   return(result)
 }

@@ -58,7 +58,8 @@ visit = as.character(visit)
 n = length(id)
 p = 100
 y = matrix(rnorm(n * p), nrow = n, ncol = p)
-I2C2(y, id = id, y = y)
+res = I2C2(y, id = id, visit = visit)
+res$lambda
 }
 \references{
 Haochang Shou, Ani Eloyan, Seonjoo Lee, Vadim Zipunnikov, Mary Beth Nebel,

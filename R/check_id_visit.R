@@ -12,7 +12,8 @@
 #' @param visit Vector of visits, EX) (1, 2, 1, 2, 1, 2, ... , 1, 2)
 #' @export
 #'
-#' @return List of elements
+#' @return List of elements: reorder data, id, visit, I (number of ids),
+#' number of rows (n), and number of columns (p)
 #' @examples
 #' id = c(1:10, 10:1)
 #' visit = rep(1:2, each = 10)
@@ -59,6 +60,7 @@ check_id_visit = function(y, id, visit) {
   id = id[ord]
   y = y[ord,]
 
-  L = list(y = y, id = id, visit = visit, n = n, p = p)
+  L = list(y = y, id = id, visit = visit, n = n, p = p,
+          I = I)
   return(L)
 }
