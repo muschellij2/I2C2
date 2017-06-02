@@ -2,9 +2,10 @@ Package: I2C2
 Type: Package
 Title: Image Intraclass Correlation Coefficient
 Version: 0.1.0
-Authors@R: c(person(first = "Haochang", last = "Shou", 
-    role = c("aut")), person(first = "Seonjoo", last = "Lee", 
-    role = c("aut")), person(first = "John", last = "Muschelli", 
+Authors@R: c(person(given = "Haochang", family = "Shou", 
+    role = c("aut", "cre"), email = "hshou@mail.med.upenn.edu"), 
+    person(given = "Seonjoo", family = "Lee", 
+    role = c("aut")), person(given = "John", family = "Muschelli", 
     role = c("aut")))
 Maintainer: Haochang Shou <hshou@mail.med.upenn.edu>
 Description: Computes the Image Intraclass Correlation Coefficient ('I2C2'),
@@ -16,3 +17,4 @@ BugReports: https://github.com/muschellij2/I2C2/issues
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 6.0.1
