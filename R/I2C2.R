@@ -107,6 +107,7 @@ I2C2 <- function(
     trKw <- sum((t(W) - Wdd) ^ 2) / (n - 1)
     trKx <- (trKw - trKu) / (1 + (1 - k2 / n) / (n - 1))
   } else {
+    Si = Si * Ni
     trKu <- (sum(W ^ 2 * n_I0[id]) - sum(Si ^ 2)) / (k2 - n)
     trKw <-
       (sum(W ^ 2) * n - sum((n * Wdd) ^ 2) - trKu * (k2 - n)) / (n ^ 2 - k2)
