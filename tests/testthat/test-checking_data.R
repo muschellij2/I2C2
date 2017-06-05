@@ -22,3 +22,26 @@ test_that("Checking I2C2 default", {
     })
   expect_equal(res$lambda, 0.070393118270377946777)
 })
+
+test_that("Checking data.frame", {
+  expect_silent(check_id_visit(y = as.data.frame(y), id = id, visit = visit))
+})
+
+test_that("Checking char", {
+  expect_error({
+    yy = y
+    class(yy) = "character"
+    check_id_visit(y = yy, id = id, visit = visit)
+    }, "y is not a numeric/integer/logical type")
+})
+
+
+test_that("Checking n == 1", {
+  expect_error({
+    yy = y
+    yy = y[1,, drop = FALSE]
+    iid = id[1]
+    ivisit = visit[1]
+    check_id_visit(y = yy, id = iid, visit = ivisit)
+  }, "only one observation")
+})
