@@ -45,3 +45,20 @@ test_that("Checking n == 1", {
     check_id_visit(y = yy, id = iid, visit = ivisit)
   }, "only one observation")
 })
+
+test_that("Checking non_matrix y", {
+  expect_error({
+    yy = y
+    yy = y[1,, drop = TRUE]
+    iid = id[1]
+    ivisit = visit[1]
+    check_id_visit(y = yy, id = iid, visit = ivisit)
+  }, "argument is of length zero")
+})
+
+test_that("Checking non_matrix y", {
+  expect_error({
+    yy = array(y, dim = c(dim(y), 1))
+    check_id_visit(y = yy, id = id, visit = visit)
+  }, "y is not a matrix")
+})

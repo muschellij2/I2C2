@@ -9,12 +9,20 @@ p = 100
 y = matrix(rnorm(n * p), nrow = n, ncol = p)
 
 
+test_that("Checking i2c2 default", {
+  expect_silent({
+    res <- i2c2(y = y, id = id, visit = visit)
+  })
+  expect_equal(res$lambda, 0.070393118270377946777)
+})
+
 test_that("Checking I2C2 default truncate = TRUE", {
   expect_silent({
     res <- I2C2(y = y, id = id, visit = visit, truncate = TRUE)
   })
   expect_equal(res$lambda, 0.070393118270377946777)
 })
+
 
 test_that("Checking I2C2 demean = FALSE", {
   expect_silent({
