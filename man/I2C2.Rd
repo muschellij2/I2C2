@@ -61,11 +61,11 @@ res = I2C2(y, id = id, visit = visit)
 res$lambda
 }
 \references{
-Haochang Shou, Ani Eloyan, Seonjoo Lee, Vadim Zipunnikov, Mary Beth Nebel,
-  Brian Caffo, Martin Lindquist, Ciprian M. Crainiceanu  (2012) The image intra
-class correlation coefficient for replication studies.
+Shou, H, Eloyan, A, Lee, S, Zipunnikov, V, Crainiceanu, AN, Nebel, NB, Caffo, B, Lindquist, MA, Crainiceanu, CM (2013).
+Quantifying the reliability of image replication studies: the image intraclass correlation coefficient (I2C2).
+Cogn Affect Behav Neurosci, 13, 4:714-24.
 }
 \author{
-Haochang Shou, Ani Eloyan, Seonjoo Lee, Vadim Zipunnikov,
+Haochang Shou, Ani Eloyan, Seonjoo Lee, Vadim Zipunnikov, Adina N. Crainiceanu,
 Mary Beth Nebel, Brian Caffo, Martin Lindquist, Ciprian M. Crainiceanu
 }
