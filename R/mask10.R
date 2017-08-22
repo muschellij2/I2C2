@@ -1,4 +1,4 @@
-#' @title Mask for data in Image
+#' @title Mask for Data in Image
 #'
 #' @description A matrix of voxels in the ventricle mask
 #'

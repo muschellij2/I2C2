@@ -5,13 +5,12 @@
 #'
 #' @param y n by p matrix of data
 #' @param visit Vector of visits, EX) (1, 2, 1, 2, 1, 2, ... , 1, 2)
-#' @param twoway a logical argument indicating whether a oneway or a twoway
-#' functional ANOVA (analysis of variance) decomposition is more
-#' appropriate for the problem. "twoway = TRUE" will carry out twoway
-#' ANOVA and remove the visit specific mean
+#' @param twoway a logical argument indicating whether a oneway or twoway
+#' mean subtraction is more appropriate for the problem. "twoway = TRUE"
+#' will remove both subject specific and visit specific means
 #' @param tol tolerance for matching visits.
 #'
-#' @return Matrix of same size as y
+#' @return Matrix of the same size as y
 #' @export
 #'
 #' @examples

@@ -3,19 +3,17 @@
 #' @description Calculate image intraclass correlation
 #'  coefficient (I2C2) of balanced/unbalanced data using the trace method
 #'
-#' @param y An n by p data matrix containing functional responses.
-#' Each row contains measurements from a function for one observation at a
-#' set of grid points, and each column contains measurements of all
-#' functions at a particular grid point.
+#' @param y An n by p data matrix containing n vectorized image data with p voxels.
+#' Each row contains one observed image data at a particular visit for one subject.
+#' Each column contains image values for all subjects and visits at a particular voxel.
 #'
 #' The rows are organized by subjects and then visits, EX)
 #' (Y11, Y12, Y21, Y22, ... , YI1 , YI2)
 #' @param id Vector of IDs, EX) c(1, 1, 2, 2, 3, 3, 4, 4, ... , I, I)
 #' @param visit Vector of visits, EX) (1, 2, 1, 2, 1, 2, ... , 1, 2)
-#' @param twoway a logical argument indicating whether a oneway or a twoway
-#' functional ANOVA (analysis of variance) decomposition is more
-#' appropriate for the problem. "twoway = TRUE" will carry out twoway
-#' ANOVA and remove the visit specific mean
+#' @param twoway a logical argument indicating whether a oneway or twoway
+#' mean subtraction is more appropriate for the problem. "twoway = TRUE"
+#' will remove both subject specific and visit specific means
 #' @param demean if TRUE, include the demean step and
 #' output the demeaned dataset
 #' @param symmetric if FALSE then the function uses the
