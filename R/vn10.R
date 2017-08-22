@@ -10,4 +10,4 @@
 #' \item{id}{vector of ids}
 #' \item{visit}{vector of visit indicators}
 #' }
-"vn10"
+#' @keywords data "vn10"

@@ -19,11 +19,12 @@
 #'  dataset
 #'   then match visits according to their distance in time as given by T.
 #'  If T == NULL, match observations from different clusters by visit number
-#' @param twoway a logical argument indicating whether a oneway or twoway
-#' mean subtraction is more appropriate for the problem. "twoway = TRUE"
-#' will remove both subject specific and visit specific means
 #' @param demean if TRUE, include the demean step and
 #' output the demeaned dataset
+#' @param twoway a logical argument indicating whether a oneway or twoway
+#' mean subtraction is more appropriate for the problem. If FALSE, only the overall sample
+#' mean will be removed only; if TRUE, it will also remove visit specific means to
+#' avoid scanner or batch effects
 #' @param symmetric if FALSE then the function uses the
 #' method of moments estimator formula;
 #' if TRUE, pairwise symmetric sum formula, default is FALSE

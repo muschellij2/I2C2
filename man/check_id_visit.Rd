@@ -7,10 +7,9 @@
 check_id_visit(y, id, visit)
 }
 \arguments{
-\item{y}{An n by p data matrix containing functional responses.
-Each row contains measurements from a function for one observation at a
-set of grid points, and each column contains measurements of all
-functions at a particular grid point.
+\item{y}{An n by p data matrix containing n vectorized image data with p voxels.
+Each row contains one observed image data at a particular visit for one subject.
+Each column contains image values for all subjects and visits at a particular voxel.
 
 The rows are organized by subjects and then visits, EX)
 (Y11, Y12, Y21, Y22, ... , YI1 , YI2)}
@@ -20,7 +19,7 @@ The rows are organized by subjects and then visits, EX)
 \item{visit}{Vector of visits, EX) (1, 2, 1, 2, 1, 2, ... , 1, 2)}
 }
 \value{
-List of elements: reorder data, id, visit, I (number of ids),
+List of elements: reordered data, id, visit, I (number of ids),
 number of rows (n), and number of columns (p)
 }
 \description{

@@ -11,15 +11,15 @@ demean_matrix(y, visit, twoway = TRUE, tol = 0)
 
 \item{visit}{Vector of visits, EX) (1, 2, 1, 2, 1, 2, ... , 1, 2)}
 
-\item{twoway}{a logical argument indicating whether a oneway or a twoway
-functional ANOVA (analysis of variance) decomposition is more
-appropriate for the problem. "twoway = TRUE" will carry out twoway
-ANOVA and remove the visit specific mean}
+\item{twoway}{a logical argument indicating whether a oneway or twoway
+mean subtraction is more appropriate for the problem. If FALSE, only the overall sample
+mean will be removed only; if TRUE, it will also remove visit specific means to
+avoid scanner or batch effects}
 
 \item{tol}{tolerance for matching visits.}
 }
 \value{
-Matrix of same size as y
+Matrix of the same size as y
 }
 \description{
 De-means a matrix based on the column means or the

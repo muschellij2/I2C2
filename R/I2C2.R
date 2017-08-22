@@ -11,11 +11,12 @@
 #' (Y11, Y12, Y21, Y22, ... , YI1 , YI2)
 #' @param id Vector of IDs, EX) c(1, 1, 2, 2, 3, 3, 4, 4, ... , I, I)
 #' @param visit Vector of visits, EX) (1, 2, 1, 2, 1, 2, ... , 1, 2)
-#' @param twoway a logical argument indicating whether a oneway or twoway
-#' mean subtraction is more appropriate for the problem. "twoway = TRUE"
-#' will remove both subject specific and visit specific means
 #' @param demean if TRUE, include the demean step and
 #' output the demeaned dataset
+#' @param twoway a logical argument indicating whether a oneway or twoway
+#' mean subtraction is more appropriate for the problem. If FALSE, only the overall sample
+#' mean will be removed only; if TRUE, it will also remove visit specific means to
+#' avoid scanner or batch effects
 #' @param symmetric if FALSE then the function uses the
 #' method of moments estimator formula;
 #' if TRUE, pairwise symmetric sum formula, default is FALSE
