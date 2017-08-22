@@ -156,7 +156,7 @@ I2C2.original <-
       Wi = Si / n_I0
       trKu <- sum((W - Wi[id,]) ^ 2) / (n - I)
       trKw <- sum((t(W) - Wdd) ^ 2) / (n - 1)
-      trKx <- (trKw - trKu) / (1 + (1 - k2 / n) / (n - 1))
+      trKx <- (trKw - trKu) #/ (1 + (1 - k2 / n) / (n - 1)) #remove the constant in the denominator
     } else {
       trKu <- (sum(W ^ 2 * n_I0[id]) - sum(Si ^ 2)) / (k2 - n)
       trKw <-

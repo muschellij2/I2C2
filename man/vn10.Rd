@@ -18,4 +18,4 @@ vn10
 A list containing the data from the ventricles from
 RAVENS maps
 }
-\keyword{datasets}
+\keyword{dataset}
