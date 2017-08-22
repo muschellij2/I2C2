@@ -67,15 +67,12 @@ I2C2 <- function(
   # p = L$p
 
   n_I0 = as.numeric(table(id))  # visit number for each id cluster
-  k2 = sum(n_I0 ^ 2) # wtf is this?
+  k2 = sum(n_I0 ^ 2) # \sum J_i^2
 
   ### If demean == TRUE, we calculate the overall mean function and subtract
   ### the mean function from the data
-  ### If twoway functional ANOVA is needed ("twoway==TRUE"),  the visit
-  ### specific mean function
-  ###     and the deviation from the overall mean to visit specific mean
-  ### functions are also
-  ###     computed.
+  ### If twoway mean subtraction is needed ("twoway==TRUE"),  the visit specific
+  ### mean function also computed and removed from the raw data.
   demean = as.logical(demean)
   tol = 0
   W <- y
@@ -104,7 +101,7 @@ I2C2 <- function(
   if (!symmetric) {
     trKu <- sum((W - Wi) ^ 2) / (n - I)
     trKw <- sum((t(W) - Wdd) ^ 2) / (n - 1)
-    trKx <- (trKw - trKu) / (1 + (1 - k2 / n) / (n - 1))
+    trKx <- (trKw - trKu) #/ (1 + (1 - k2 / n) / (n - 1))  #removed constant in the denominator
   } else {
     Si = Si * Ni
     trKu <- (sum(W ^ 2 * n_I0[id]) - sum(Si ^ 2)) / (k2 - n)
