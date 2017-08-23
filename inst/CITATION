@@ -1,0 +1,31 @@
+citHeader("To cite 'I2C2' in publications, please use:")
+
+citEntry(entry = "article",
+   author="Shou, H.  and Eloyan, A.  and Lee, S.  and Zipunnikov, V.  and Crainiceanu, A. N.  and Nebel, N. B.  and Caffo, B.  and Lindquist, M. A.  and Crainiceanu, C. M. ",
+   title="Quantifying the reliability of image replication studies: the image intraclass correlation coefficient I2C2",
+   journal="Cogn Affect Behav Neurosci",
+   year="2013",
+   volume="13",
+   number="4",
+   pages="714--724",
+   url = "https://doi.org/10.3758/s13415-013-0196-0",
+  textVersion = "Shou, H, Eloyan, A, Lee, S, Zipunnikov, V, Crainiceanu, AN, Nebel, NB, Caffo, B, Lindquist, MA, Crainiceanu, CM (2013). Quantifying the reliability of image replication studies: the image intraclass correlation coefficient (I2C2). Cogn Affect Behav Neurosci, 13, 4:714-24.",
+     key = "I2C2-paper"
+)
+
+
+citEntry(entry = "Manual",
+   title="I2C2: Image Intraclass Correlation Coefficient",
+   author=c(
+       person("Haochang", "Shou", role = c("aut","cre")),
+       person("John", "Muschelli", role = "aut"),
+       person("Seonjoo", "Lee", role = "aut")
+       ),
+   note = "R package version 0.2.2",
+   year="2017",
+   url="https://github.com/muschellij2/I2C2",
+   textVersion = "Haochang Shou, John Muschelli and Seonjoo Lee (2017). I2C2: Image Intraclass Correlation Coefficient. R package version 0.2.2",
+   key = "I2C2-package"
+)
+
+
