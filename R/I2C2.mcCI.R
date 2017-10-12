@@ -1,4 +1,4 @@
-#' @title Compute the Convidence Interval
+#' @title Compute the Confidence Interval
 #' @description Computing the confidence interval of I2C2 via multicore computing.
 #'
 #' @param ... arguments passed to \code{\link{I2C2.rsample}}

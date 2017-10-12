@@ -2,7 +2,7 @@
 % Please edit documentation in R/I2C2.mcCI.R
 \name{I2C2.mcCI}
 \alias{I2C2.mcCI}
-\title{Compute the Convidence Interval}
+\title{Compute the Confidence Interval}
 \usage{
 I2C2.mcCI(..., rseed = 1234, R = 100, mc.cores = 1, ci = 0.95)
 }
