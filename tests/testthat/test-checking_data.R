@@ -20,7 +20,7 @@ test_that("Checking I2C2 default", {
   expect_silent({
     res <- I2C2(y = y, id = id, visit = visit)
     })
-  expect_equal(res$lambda, 0.070393118270377946777)
+  expect_equal(res$lambda, 0.066936209335110546936)
 })
 
 test_that("Checking data.frame", {

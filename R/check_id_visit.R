@@ -1,10 +1,9 @@
 
 #' @title Check ID and visit specification for I2C2
 #' @description Checks the input for I2C2
-#' @param y An n by p data matrix containing functional responses.
-#' Each row contains measurements from a function for one observation at a
-#' set of grid points, and each column contains measurements of all
-#' functions at a particular grid point.
+#' @param y An n by p data matrix containing n vectorized image data with p voxels.
+#' Each row contains one observed image data at a particular visit for one subject.
+#' Each column contains image values for all subjects and visits at a particular voxel.
 #'
 #' The rows are organized by subjects and then visits, EX)
 #' (Y11, Y12, Y21, Y22, ... , YI1 , YI2)
@@ -12,7 +11,7 @@
 #' @param visit Vector of visits, EX) (1, 2, 1, 2, 1, 2, ... , 1, 2)
 #' @export
 #'
-#' @return List of elements: reorder data, id, visit, I (number of ids),
+#' @return List of elements: reordered data, id, visit, I (number of ids),
 #' number of rows (n), and number of columns (p)
 #' @examples
 #' id = c(1:10, 10:1)

@@ -3,21 +3,20 @@
 #' @description Calculate image intraclass correlation
 #'  coefficient (I2C2) of balanced/unbalanced data using the trace method
 #'
-#' @param y An n by p data matrix containing functional responses.
-#' Each row contains measurements from a function for one observation at a
-#' set of grid points, and each column contains measurements of all
-#' functions at a particular grid point.
+#' @param y An n by p data matrix containing n vectorized image data with p voxels.
+#' Each row contains one observed image data at a particular visit for one subject.
+#' Each column contains image values for all subjects and visits at a particular voxel.
 #'
 #' The rows are organized by subjects and then visits, EX)
 #' (Y11, Y12, Y21, Y22, ... , YI1 , YI2)
 #' @param id Vector of IDs, EX) c(1, 1, 2, 2, 3, 3, 4, 4, ... , I, I)
 #' @param visit Vector of visits, EX) (1, 2, 1, 2, 1, 2, ... , 1, 2)
-#' @param twoway a logical argument indicating whether a oneway or a twoway
-#' functional ANOVA (analysis of variance) decomposition is more
-#' appropriate for the problem. "twoway = TRUE" will carry out twoway
-#' ANOVA and remove the visit specific mean
 #' @param demean if TRUE, include the demean step and
 #' output the demeaned dataset
+#' @param twoway a logical argument indicating whether a oneway or twoway
+#' mean subtraction is more appropriate for the problem. If FALSE, only the overall sample
+#' mean will be removed only; if TRUE, it will also remove visit specific means to
+#' avoid scanner or batch effects
 #' @param symmetric if FALSE then the function uses the
 #' method of moments estimator formula;
 #' if TRUE, pairwise symmetric sum formula, default is FALSE
@@ -31,12 +30,12 @@
 #' Ku:           the trace of within-cluster variance operator
 #' demean_y:     if demean == TRUE, output the demeaned dataset
 #'
-#' @author Haochang Shou, Ani Eloyan, Seonjoo Lee, Vadim Zipunnikov,
+#' @author Haochang Shou, Ani Eloyan, Seonjoo Lee, Vadim Zipunnikov, Adina N. Crainiceanu,
 #' Mary Beth Nebel, Brian Caffo, Martin Lindquist, Ciprian M. Crainiceanu
 #' @references
-#' Haochang Shou, Ani Eloyan, Seonjoo Lee, Vadim Zipunnikov, Mary Beth Nebel,
-#'   Brian Caffo, Martin Lindquist, Ciprian M. Crainiceanu  (2012) The image intra
-#' class correlation coefficient for replication studies.
+#' Shou, H, Eloyan, A, Lee, S, Zipunnikov, V, Crainiceanu, AN, Nebel, NB, Caffo, B, Lindquist, MA, Crainiceanu, CM (2013).
+#' Quantifying the reliability of image replication studies: the image intraclass correlation coefficient (I2C2).
+#' Cogn Affect Behav Neurosci, 13, 4:714-24.
 #'
 #' @export
 #' @examples
@@ -68,15 +67,12 @@ I2C2 <- function(
   # p = L$p
 
   n_I0 = as.numeric(table(id))  # visit number for each id cluster
-  k2 = sum(n_I0 ^ 2) # wtf is this?
+  k2 = sum(n_I0 ^ 2) # \sum J_i^2
 
   ### If demean == TRUE, we calculate the overall mean function and subtract
   ### the mean function from the data
-  ### If twoway functional ANOVA is needed ("twoway==TRUE"),  the visit
-  ### specific mean function
-  ###     and the deviation from the overall mean to visit specific mean
-  ### functions are also
-  ###     computed.
+  ### If twoway mean subtraction is needed ("twoway==TRUE"),  the visit specific
+  ### mean function also computed and removed from the raw data.
   demean = as.logical(demean)
   tol = 0
   W <- y
@@ -105,7 +101,7 @@ I2C2 <- function(
   if (!symmetric) {
     trKu <- sum((W - Wi) ^ 2) / (n - I)
     trKw <- sum((t(W) - Wdd) ^ 2) / (n - 1)
-    trKx <- (trKw - trKu) / (1 + (1 - k2 / n) / (n - 1))
+    trKx <- (trKw - trKu) #/ (1 + (1 - k2 / n) / (n - 1))  #removed constant in the denominator
   } else {
     Si = Si * Ni
     trKu <- (sum(W ^ 2 * n_I0[id]) - sum(Si ^ 2)) / (k2 - n)

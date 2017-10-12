@@ -3,7 +3,7 @@
 \docType{data}
 \name{mask10}
 \alias{mask10}
-\title{Mask for data in Image}
+\title{Mask for Data in Image}
 \format{An array of 256 by 256 by 181 voxels indicating the \code{11294}
 voxels in the mask}
 \usage{

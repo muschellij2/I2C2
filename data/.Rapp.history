@@ -6,3 +6,7 @@ dir()
 ls()
 vn10 = list(vn=vn, xI = xI, xid = xid, xJ = xJ, xvisit = xvisit)
 save(vn10, file = "/Users/johnmuschelli/Dropbox/Packages/I2C2/data/vn10.rda", compression_level=9)
+load("/Users/hshou/Documents/Research_Projects/Imaging/Neuroconductor/data/vn10.rda")
+names(vn10)
+dim(vn10$y)
+vn10$id

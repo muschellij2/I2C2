@@ -10,4 +10,5 @@
 #' \item{id}{vector of ids}
 #' \item{visit}{vector of visit indicators}
 #' }
+#' @keywords dataset
 "vn10"

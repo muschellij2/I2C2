@@ -13,7 +13,7 @@ test_that("Checking I2C2 default truncate = TRUE", {
   expect_silent({
     res <- I2C2.original(y = y, id = id, visit = visit, trun = TRUE)
   })
-  expect_equal(res$lambda, 0.070393118270377946777)
+  expect_equal(res$lambda, 0.066936209335110546936)
 })
 
 
@@ -21,7 +21,7 @@ test_that("Checking I2C2 demean = FALSE", {
   expect_silent({
     res <- I2C2.original(y = y, id = id, visit = visit, demean = FALSE)
   })
-  expect_equal(res$lambda, 0.012814655436895599008)
+  expect_equal(res$lambda, 0.01214839343895541407)
 })
 
 
@@ -29,14 +29,14 @@ test_that("Checking I2C2 symmetric = FALSE", {
   expect_silent({
     res <- I2C2.original(y = y, id = id, visit = visit, symmetric = FALSE)
   })
-  expect_equal(res$lambda, 0.070393118270377946777)
+  expect_equal(res$lambda, 0.066936209335110546936)
 })
 
 test_that("Checking I2C2 symmetric = FALSE, demean = FALSE", {
   expect_silent({
     res <- I2C2.original(y = y, id = id, visit = visit, symmetric = FALSE, demean = FALSE)
   })
-  expect_equal(res$lambda, 0.012814655436895599008)
+  expect_equal(res$lambda, 0.01214839343895541407)
 })
 
 
@@ -44,14 +44,14 @@ test_that("Checking I2C2 twoway = FALSE", {
   expect_silent({
     res <- I2C2.original(y = y, id = id, visit = visit, twoway = FALSE)
   })
-  expect_equal(res$lambda, 0.012814655436895599008)
+  expect_equal(res$lambda, 0.01214839343895541407)
 })
 
 test_that("Checking I2C2 twoway = FALSE, demean = FALSE", {
   expect_silent({
     res <- I2C2.original(y = y, id = id, visit = visit, twoway = FALSE, demean = FALSE)
   })
-  expect_equal(res$lambda, 0.012814655436895599008)
+  expect_equal(res$lambda, 0.01214839343895541407)
 })
 
 

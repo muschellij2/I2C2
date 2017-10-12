@@ -12,12 +12,12 @@ test_that("I2C2.mcNulldist default", {
   expect_silent({
     res <- I2C2.mcNulldist(y = y, id = id, visit = visit)
   })
-  expect_equal(mean(res$lambda), 0.05198268671886550201799)
+  expect_equal(mean(res$lambda), 0.049434565167522703799)
 })
 
 test_that("I2C2.mcNulldist diffseed", {
   expect_silent({
     res <- I2C2.mcNulldist(y = y, id = id, visit = visit, rseed = 100)
   })
-  expect_equal(mean(res$lambda), 0.05435194877604640484314)
+  expect_equal(mean(res$lambda), 0.051689989533292533819)
 })
