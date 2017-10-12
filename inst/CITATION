@@ -1,29 +1,3 @@
-<<<<<<< HEAD
-structure(list(shou2013quantifying = structure(list(title = "Quantifying the reliability of image replication studies: the image intraclass correlation coefficient (I2C2)", 
-    author = structure(list(structure(list(given = "H", family = "Shou", 
-        role = NULL, email = NULL, comment = NULL), .Names = c("given", 
-    "family", "role", "email", "comment")), structure(list(given = "A", 
-        family = "Eloyan", role = NULL, email = NULL, comment = NULL), .Names = c("given", 
-    "family", "role", "email", "comment")), structure(list(given = "S", 
-        family = "Lee", role = NULL, email = NULL, comment = NULL), .Names = c("given", 
-    "family", "role", "email", "comment")), structure(list(given = "V", 
-        family = "Zipunnikov", role = NULL, email = NULL, comment = NULL), .Names = c("given", 
-    "family", "role", "email", "comment")), structure(list(given = "AN", 
-        family = "Crainiceanu", role = NULL, email = NULL, comment = NULL), .Names = c("given", 
-    "family", "role", "email", "comment")), structure(list(given = "MB", 
-        family = "Nebel", role = NULL, email = NULL, comment = NULL), .Names = c("given", 
-    "family", "role", "email", "comment")), structure(list(given = "B", 
-        family = "Caffo", role = NULL, email = NULL, comment = NULL), .Names = c("given", 
-    "family", "role", "email", "comment")), structure(list(given = "MA", 
-        family = "Lindquist", role = NULL, email = NULL, comment = NULL), .Names = c("given", 
-    "family", "role", "email", "comment")), structure(list(given = "CM", 
-        family = "Crainiceanu", role = NULL, email = NULL, comment = NULL), .Names = c("given", 
-    "family", "role", "email", "comment"))), class = "person"), 
-    journal = "Cognitive, Affective, & Behavioral Neuroscience", 
-    volume = "13", number = "4", pages = "714--724", year = "2013", 
-    publisher = "Springer"), .Names = c("title", "author", "journal", 
-"volume", "number", "pages", "year", "publisher"), bibtype = "Article", key = "shou2013quantifying")), class = "bibentry", strings = structure(character(0), .Names = character(0)), .Names = "shou2013quantifying")
-=======
 citHeader("To cite 'I2C2' in publications, please use:")
 
 citEntry(entry = "article",
@@ -53,6 +27,3 @@ citEntry(entry = "Manual",
    textVersion = "Haochang Shou, John Muschelli and Seonjoo Lee (2017). I2C2: Image Intraclass Correlation Coefficient. R package version 0.2.2",
    key = "I2C2-package"
 )
-
-
->>>>>>> eb18b76938064ba0fd352b4fa7325c1a5d9a9e56
