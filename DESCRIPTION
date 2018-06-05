@@ -4,11 +4,25 @@ Title: Image Intraclass Correlation Coefficient
 Version: 0.2.3
 Date: 2018-02-01
 Authors@R: c(person(given = "Haochang", family = "Shou", 
-    role = c("aut", "cre"), email = "hshou@mail.med.upenn.edu"), 
+    role = c("aut","ctb","cre"), email = "hshou@pennmedicine.upenn.edu"), 
+    person(given = "Ani", family = "Eloyan", 
+    role = c("ctb")),
     person(given = "Seonjoo", family = "Lee", 
-    role = c("aut")), person(given = "John", family = "Muschelli", 
-    role = c("aut")))
-Maintainer: Haochang Shou <hshou@mail.med.upenn.edu>
+    role = c("aut","ctb")), 
+    person(given = "Vadim", family = "Zipunnikov", 
+    role = c("ctb")),
+    person(given = "Adina N.", family = "Crainiceanu", 
+    role = c("ctb")),
+    person(given = "Mary Beth", family = "Nebel", 
+    role = c("ctb")),
+    person(given = "Brian", family = "Caffo", 
+    role = c("ctb")),
+    person(given = "Martin A.", family = "Lindquist", 
+    role = c("ctb")),
+    person(given = "Ciprian M.", family = "Crainiceanu", 
+    role = c("ctb")),
+    person(given = "John", family = "Muschelli", 
+    role = c("aut", "ctb")))
 Description: Computes the Image Intraclass Correlation Coefficient ('I2C2'),
     a global measure of reliability for imaging studies. The method was
     described in "Quantifying the reliability of image replication 
@@ -30,3 +44,4 @@ Suggests: knitr,
     testthat,
     covr
 VignetteBuilder: knitr
+biocViews: 
