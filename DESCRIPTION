@@ -6,24 +6,23 @@ Date: 2018-02-01
 Authors@R: c(person(given = "Haochang", family = "Shou", 
     role = c("aut","ctb","cre"), email = "hshou@pennmedicine.upenn.edu"), 
     person(given = "Ani", family = "Eloyan", 
-    role = c("aut")),
+    role = c("ctb")),
     person(given = "Seonjoo", family = "Lee", 
     role = c("aut","ctb")), 
     person(given = "Vadim", family = "Zipunnikov", 
-    role = c("aut")),
+    role = c("ctb")),
     person(given = "Adina N.", family = "Crainiceanu", 
-    role = c("aut")),
+    role = c("ctb")),
     person(given = "Mary Beth", family = "Nebel", 
-    role = c("aut")),
+    role = c("ctb")),
     person(given = "Brian", family = "Caffo", 
-    role = c("aut")),
+    role = c("ctb")),
     person(given = "Martin A.", family = "Lindquist", 
-    role = c("aut")),
+    role = c("ctb")),
     person(given = "Ciprian M.", family = "Crainiceanu", 
-    role = c("aut")),
+    role = c("ctb")),
     person(given = "John", family = "Muschelli", 
-    role = c("ctb")))
-Maintainer: Haochang Shou <hshou@pennmedicine.upenn.edu>
+    role = c("aut", "ctb")))
 Description: Computes the Image Intraclass Correlation Coefficient ('I2C2'),
     a global measure of reliability for imaging studies. The method was
     described in "Quantifying the reliability of image replication 
