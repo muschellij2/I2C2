@@ -173,14 +173,15 @@ I2C2.original <-
     ###  Kx and Ku being the trace of between and within cluster variance operators;
     ###  If demean == TRUE, also return demeaned data
 
-    if (demean == TRUE)
+    if (demean == TRUE) {
+      class(resd)  = c(class(resd), "demeaned_matrix")
       return(list(
         lambda = lambda,
         demean_y = resd,
         Kx = trKx,
         Ku = trKu
       ))
-
+    }
 
     if (demean == FALSE)
       return(list(lambda = lambda, Ku = trKu, Kx = trKx))

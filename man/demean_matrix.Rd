@@ -2,18 +2,24 @@
 % Please edit documentation in R/demean_matrix.R
 \name{demean_matrix}
 \alias{demean_matrix}
+\alias{demean_matrix.Deprecated}
 \title{Worker function for demeaning a matrix}
 \usage{
 demean_matrix(y, visit, twoway = TRUE, tol = 0)
+
+demean_matrix.Deprecated(y, visit, twoway = TRUE, tol = 0)
 }
 \arguments{
 \item{y}{n by p matrix of data}
 
 \item{visit}{Vector of visits, EX) (1, 2, 1, 2, 1, 2, ... , 1, 2)}
 
-\item{twoway}{a logical argument indicating whether a oneway or twoway
-mean subtraction is more appropriate for the problem. If FALSE, only the overall sample
-mean will be removed only; if TRUE, it will also remove visit specific means to
+\item{twoway}{a logical argument indicating whether a oneway or
+twoway
+mean subtraction is more appropriate for the problem. If FALSE,
+only the overall sample
+mean will be removed only; if TRUE, it will also remove visit
+specific means to
 avoid scanner or batch effects}
 
 \item{tol}{tolerance for matching visits.}
@@ -31,5 +37,23 @@ visit = rep(1:2, each = 10)
 n = length(id)
 p = 100
 y = matrix(rnorm(n * p), nrow = n, ncol = p)
-demean_matrix(y, visit = visit)
+result = demean_matrix(y, visit = visit)
+result.oneway = demean_matrix(y, visit = visit, twoway = FALSE)
+
+testthat::expect_warning({
+result.old = demean_matrix.Deprecated(y, visit = visit)
+})
+testthat::expect_warning({
+result.old_oneway = demean_matrix.Deprecated(y,
+visit = visit,
+twoway = FALSE)
+})
+stopifnot(
+isTRUE(all.equal(
+result.oneway, result.old_oneway)
+))
+
+stopifnot(
+isTRUE(all.equal(result.old, result))
+)
 }

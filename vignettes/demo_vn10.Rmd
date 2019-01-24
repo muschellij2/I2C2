@@ -18,10 +18,11 @@ knitr::opts_chunk$set(echo = TRUE, fig.width=8, fig.height=6,out.width="400px", 
 For illustration, Kirby21 ventricular RAVENS images were thresholded
 at sum > 15. In the main paper, sum > 1 was used. The mask file is located at `I2C2::mask10`.
 
-Call the multicore package. If multicore is not installed, set ncores = 1
-when computing the CI and the Null distribution (as shown in the example below).
-require(multicore)
-
+Call the `parallel` package. If `parallel` is not installed, set ncores = 1 when computing the CI and the Null distribution (as shown in the example below).
+```r
+require(parallel)
+makeCluster()
+````
 
 ```{r load_and_plot, fig.align='center'}
 library(I2C2)

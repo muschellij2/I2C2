@@ -67,7 +67,7 @@ test_that("Checking I2C2 twoway = FALSE, symmetric = TRUE", {
 test_that("Checking I2C2 twoway = FALSE, demean = FALSE, symmetric = TRUE", {
   expect_silent({
     res <- I2C2.original(y = y, id = id, visit = visit, twoway = FALSE,
-                demean = FALSE, symmetric = TRUE)
+                         demean = FALSE, symmetric = TRUE)
   })
   expect_equal(res$lambda, 0.012814655436895427271)
 })

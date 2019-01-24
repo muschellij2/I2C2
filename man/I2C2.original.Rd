@@ -5,8 +5,8 @@
 \title{Image Intraclass Correlation Coefficient}
 \usage{
 I2C2.original(y, id = NULL, visit = NULL, J = NULL, I = NULL,
-  p = NULL, T = NULL, symmetric = FALSE, trun = FALSE, twoway = TRUE,
-  demean = TRUE)
+  p = NULL, T = NULL, symmetric = FALSE, trun = FALSE,
+  twoway = TRUE, demean = TRUE)
 }
 \arguments{
 \item{y}{An n by p data matrix containing n vectorized image data with p voxels.

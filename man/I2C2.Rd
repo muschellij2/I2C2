@@ -5,8 +5,8 @@
 \alias{i2c2}
 \title{Image Intraclass Correlation Coefficient}
 \usage{
-I2C2(y, id, visit, symmetric = FALSE, truncate = FALSE, twoway = TRUE,
-  demean = TRUE, ...)
+I2C2(y, id, visit, symmetric = FALSE, truncate = FALSE,
+  twoway = TRUE, demean = TRUE, return_demean = TRUE, ...)
 
 i2c2(...)
 }
@@ -35,6 +35,8 @@ avoid scanner or batch effects}
 
 \item{demean}{if TRUE, include the demean step and
 output the demeaned dataset}
+
+\item{return_demean}{return de-meaned matrix.  Set to \code{FALSE}}
 
 \item{...}{not used}
 }

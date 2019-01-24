@@ -21,6 +21,7 @@
 #' method of moments estimator formula;
 #' if TRUE, pairwise symmetric sum formula, default is FALSE
 #' @param truncate if TRUE, set negative I2C2 to zero
+#' @param return_demean return de-meaned matrix.  Set to \code{FALSE}
 #' @param ... not used
 #'
 #' @return The output of the function is a list that contains the
@@ -55,15 +56,19 @@ I2C2 <- function(
   truncate = FALSE,
   twoway = TRUE,
   demean = TRUE,
+  return_demean = TRUE,
   ...){
 
 
   L = check_id_visit(y = y, id = id, visit = visit)
+  rm(y); gc()
   n = L$n
   y = L$y
   id = L$id
   I = L$I
   visit = L$visit
+  rm(L);
+  gc(); gc();
   # p = L$p
 
   n_I0 = as.numeric(table(id))  # visit number for each id cluster
@@ -75,11 +80,18 @@ I2C2 <- function(
   ### mean function also computed and removed from the raw data.
   demean = as.logical(demean)
   tol = 0
-  W <- y
 
   if (demean) {
+    # need resd as in output
     resd = demean_matrix(y = y, visit = visit, twoway = twoway, tol = tol)
+    rm(y); gc()
     W = resd
+    if (!return_demean) {
+      rm(resd)
+    }
+  } else {
+    W <- y
+    rm(y); gc()
   }
 
   # population average for the demeaned dataset W
@@ -125,7 +137,8 @@ I2C2 <- function(
     Kx = trKx,
     Ku = trKu
   )
-  if (demean) {
+  if (demean & return_demean) {
+    class(resd)  = c(class(resd), "demeaned_matrix")
     L$demean_y = resd
   }
 

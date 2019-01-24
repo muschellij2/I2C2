@@ -54,12 +54,16 @@ check_id_visit = function(y, id, visit) {
   # reorder the rows in order of the ids
   ord = order(id, visit)
 
-  # order visit
-  visit = visit[ord]
-  id = id[ord]
-  y = y[ord,]
+  # only reorder if needed
+  # saving for memory
+  if (!all(ord == seq_along(ord))) {
+    # order visit
+    visit = visit[ord]
+    id = id[ord]
+    y = y[ord,]
+  }
 
   L = list(y = y, id = id, visit = visit, n = n, p = p,
-          I = I)
+           I = I)
   return(L)
 }
