@@ -75,7 +75,6 @@ test_that("Constructing data with visit-level means", {
   colMeans(y2[ visit == "2", ])
 
   x = colMeans(t(t(visit_means) + colMeans(y)))
-  colMeans()
   colMeans(oneway[ visit == "1", ])
   colMeans(oneway)
   colMeans(oneway[ visit == "2", ])
