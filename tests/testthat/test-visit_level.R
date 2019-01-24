@@ -52,8 +52,12 @@ test_that("Constructing data with visit-level means", {
   testthat::expect_equal(colMeans(twoway[ visit == "1", ]), zeroes)
 
   testthat::expect_equal(colMeans(oneway), zeroes)
-  testthat::expect_equal(colMeans(oneway[ visit == "2", ]), zeroes)
-  testthat::expect_equal(colMeans(oneway[ visit == "1", ]), zeroes)
+  # does this work when not same # of visits?
+  testthat::expect_equal(colMeans(oneway[ visit == "2", ]),
+                         -colMeans(oneway[ visit == "1", ]))
+
+  # testthat::expect_equal(colMeans(oneway[ visit == "2", ]), colMeans(oneway[ visit == "1", ]))
+  # testthat::expect_equal(colMeans(oneway[ visit == "1", ]), zeroes)
 
   testthat::expect_equal(
     colMeans(y[ visit == "1", ]) + visit_means[ "1", ],

@@ -1,6 +1,6 @@
 # I2C2 0.2.4
 
-* First commit to CRAN.
+* Actual submission to CRAN.
 
 # I2C2 0.2.3
 
