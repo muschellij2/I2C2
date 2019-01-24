@@ -1,7 +1,7 @@
 Package: I2C2
 Type: Package
 Title: Image Intraclass Correlation Coefficient
-Version: 0.2.3
+Version: 0.2.4
 Date: 2019-01-24
 Authors@R: c(person(given = "Haochang", family = "Shou", 
     role = c("aut", "cre"), email = "hshou@mail.med.upenn.edu"), 
