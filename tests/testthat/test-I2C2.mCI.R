@@ -1,5 +1,6 @@
 context("Testing I2C2 mCI")
 
+suppressWarnings(RNGversion("3.5.0"))
 set.seed(20170602)
 id = c(1:10, 10:1)
 visit = rep(1:2, each = 10)
