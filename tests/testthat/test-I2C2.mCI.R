@@ -1,5 +1,7 @@
 context("Testing I2C2 mCI")
 
+suppressWarnings(RNGversion("3.5.0"))
+
 set.seed(20170602)
 id = c(1:10, 10:1)
 visit = rep(1:2, each = 10)
@@ -19,9 +21,11 @@ test_that("I2C2.mCI default", {
   )
 })
 
-test_that("I2C2.mCI default, 4 cores", {
+test_that("I2C2.mCI default, num_cores cores", {
   expect_silent({
-    res <- I2C2.mcCI(y = y, id = id, visit = visit, cores = 4)
+    res <- I2C2.mcCI(y = y, id = id, visit = visit,
+                     cores = min(4, parallel::detectCores())
+                     )
   })
   expect_equal(mean(res$lambda), 0.068824712183468320092)
   names(res$CI) = NULL
